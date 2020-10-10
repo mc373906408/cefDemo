@@ -32,16 +32,16 @@ int main(int argc, char *argv[])
     SetProcessDPIAware();
     int result = 0;
 
-    CefSettings settings;
-    // 禁用日志
-    settings.log_severity = LOGSEVERITY_DISABLE;
-    // 设置CEF资源路径(cef.pak和/或devtools_resources.pak)
-    CefString(&settings.resources_dir_path) = CefString();
-    // 本地化资源路径
-    CefString(&settings.locales_dir_path) = CefString();
-    settings.remote_debugging_port=7777;
+//    CefSettings settings;
+//    // 禁用日志
+//    settings.log_severity = LOGSEVERITY_DISABLE;
+//    // 设置CEF资源路径(cef.pak和/或devtools_resources.pak)
+//    CefString(&settings.resources_dir_path) = CefString();
+//    // 本地化资源路径
+//    CefString(&settings.locales_dir_path) = CefString();
+//    settings.remote_debugging_port=7777;
 
-    QCefContext* cef = new QCefContext(&settings);
+    QCefContext* cef = new QCefContext();
     result = cef->initCef(argc, argv);
     if (result >= 0)
         return result;

@@ -9,13 +9,13 @@ test::test(QCefView* cefView,QObject *parent) : QObject(parent)
 
 void test::qtest()
 {
-    if(!bb){
+//    if(!bb){
 //        m_cefView->load(QUrl("http://www.baidu.com"));
-        bb=true;
-    }
+//        bb=true;
+//    }
 
 
-    m_cefView->setresize();
+//    m_cefView->setresize();
     m_cefView->sendToWeb("22222");
 //    SetProcessDPIAware();
 }

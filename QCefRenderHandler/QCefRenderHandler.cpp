@@ -1,5 +1,6 @@
 ﻿#include "QCefRenderHandler/QCefRenderHandler.h"
 #include <QDebug>
+#include <QFile>
 
 
 CefRefPtr<CefRenderProcessHandler> QCefRenderHandler::GetRenderProcessHandler()
@@ -18,4 +19,15 @@ void QCefRenderHandler::OnContextCreated(CefRefPtr<CefBrowser> browser, CefRefPt
 
     // 将消息通道注册到window对象
     bool b=object->SetValue("sendMessage", func, V8_PROPERTY_ATTRIBUTE_NONE);
+}
+
+
+bool QCefRenderHandler::OnProcessMessageReceived(CefRefPtr<CefBrowser> browser, CefRefPtr<CefFrame> frame, CefProcessId source_process, CefRefPtr<CefProcessMessage> message)
+{
+    //收到来自Browser进程发过来的信息
+//    QFile file("D:/test.txt");
+//    file.open(QIODevice::WriteOnly|QIODevice::Text);
+//    QTextStream out(&file);
+//    out<<message->GetName().ToString().c_str();
+    return true;
 }

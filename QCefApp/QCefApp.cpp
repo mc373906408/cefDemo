@@ -7,6 +7,7 @@ CefRefPtr<CefBrowserProcessHandler> QCefApp::GetBrowserProcessHandler()
 {
     return this;
 }
+
 void QCefApp::OnContextInitialized()
 {
     CEF_REQUIRE_UI_THREAD();
@@ -21,7 +22,7 @@ void QCefApp::OnBeforeCommandLineProcessing(const CefString &process_type, CefRe
 //    command_line->AppendSwitchWithValue("type","renderer");
 }
 
-CefRefPtr<QCefClient> QCefApp::addBrowser(QList<QSslCertificate> caCerts)
+CefRefPtr<QCefClient> QCefApp::addBrowser()
 {
     if(m_contextReady)
     {
@@ -42,7 +43,6 @@ CefRefPtr<QCefClient> QCefApp::addBrowser(QList<QSslCertificate> caCerts)
         CefBrowserSettings browserSettings;
 //        std::string url = "html/";
         QString url=QCoreApplication::applicationDirPath()+"/res/html/404.html";
-        qDebug()<<url;
         // 创建浏览器窗口
         CefBrowserHost::CreateBrowser(windowInfo, client.get(), url.toStdString(), browserSettings, NULL,CefRequestContext::GetGlobalContext());
         // 将浏览器引用添加到浏览器队列

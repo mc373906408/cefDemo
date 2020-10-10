@@ -4,7 +4,7 @@
 #include "QCefClient/QCefClient.h"
 #include <include/cef_app.h>
 #include <QList>
-#include <QSslCertificate>
+//#include <QSslCertificate>
 #include <QQueue>
 
 
@@ -19,7 +19,7 @@ public:
     virtual ~QCefApp(){}
 
     /*创建浏览器进程的工厂方法*/
-    CefRefPtr<QCefClient> addBrowser(QList<QSslCertificate> caCerts = QList<QSslCertificate>());
+    CefRefPtr<QCefClient> addBrowser();
 
     /*关闭所有浏览器进程*/
     void closeAllBrowser();

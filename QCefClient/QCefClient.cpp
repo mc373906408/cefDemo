@@ -1,4 +1,6 @@
 ﻿#include "QCefClient/QCefClient.h"
+#include <QDebug>
+#include <QFile>
 
 CefRefPtr<CefLifeSpanHandler> QCefClient::GetLifeSpanHandler()
 {
@@ -33,6 +35,7 @@ bool QCefClient::OnBeforePopup(CefRefPtr<CefBrowser> browser, CefRefPtr<CefFrame
 
 bool QCefClient::OnProcessMessageReceived(CefRefPtr<CefBrowser> browser, CefRefPtr<CefFrame> frame, CefProcessId source_process, CefRefPtr<CefProcessMessage> message)
 {
+    //收到来自Render进程发过来的信息
     emit webMsgReceived(QString(message->GetName().ToString().c_str()));
     return true;
 }

@@ -11,7 +11,7 @@ class QCefRenderHandler:
 public:
     virtual CefRefPtr<CefRenderProcessHandler> GetRenderProcessHandler() override;
     virtual void OnContextCreated(CefRefPtr<CefBrowser> browser, CefRefPtr<CefFrame> frame, CefRefPtr<CefV8Context> context) override;
-
+    virtual bool OnProcessMessageReceived(CefRefPtr<CefBrowser> browser, CefRefPtr<CefFrame> frame, CefProcessId source_process, CefRefPtr<CefProcessMessage> message) override;
 private:
     CefRefPtr<QCefV8Handler> m_v8Handler;
 

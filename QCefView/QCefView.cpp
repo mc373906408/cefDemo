@@ -3,6 +3,7 @@
 #include <QStackedLayout>
 #include <QUrl>
 #include <QVariant>
+#include <QDebug>
 
 QCefView::QCefView(CefRefPtr<QCefClient> cefClient,QWindow *window)
 {
@@ -61,11 +62,14 @@ void QCefView::load(QUrl url)
 
 void QCefView::runJavaScript(QString script)
 {
-    CefRefPtr<CefFrame> frame = m_cefClient->browser()->GetMainFrame();
-    frame->ExecuteJavaScript(script.toStdString(), frame->GetURL(), 0);
+//    CefRefPtr<CefFrame> frame = m_cefClient->browser()->GetMainFrame();
+//    frame->ExecuteJavaScript(script.toStdString(), frame->GetURL(), 0);
 }
 
 void QCefView::sendToWeb(QString msg)
 {
-    runJavaScript(QString("recvMessage('%1');").arg(msg));
+    // 发送给H5信息，先发送给RENDERER，在RENDERER进程中转发给H5
+//    runJavaScript(QString("recvMessage('%1');").arg(msg));
+    CefString msgStr=msg.toStdString().c_str();
+    m_cefClient->browser()->GetMainFrame()->SendProcessMessage(PID_RENDERER,CefProcessMessage::Create(msgStr));
 }

@@ -34,21 +34,15 @@ HEADERS+= \
         $$PWD/QCefClient/QCefClient.h \
         $$PWD/QCefApp/QCefApp.h \
         $$PWD/QCefContext/QCefContext.h \
-        MainDlg/MainDlg.h \
-        test.h \
-        $$PWD/QCefRenderHandler/QCefRenderHandler.h \
-        $$PWD/QCefV8Handler/QCefV8Handler.h
+        test.h
 
 SOURCES += \
-        MainDlg/MainDlg.cpp \
         main.cpp \
         $$PWD/QCefView/QCefView.cpp \
         $$PWD/QCefClient/QCefClient.cpp \
         $$PWD/QCefApp/QCefApp.cpp \
         $$PWD/QCefContext/QCefContext.cpp \
-        test.cpp \
-        $$PWD/QCefRenderHandler/QCefRenderHandler.cpp \
-        $$PWD/QCefV8Handler/QCefV8Handler.cpp
+        test.cpp
 RESOURCES += $$PWD/qml/qml.qrc
 
 
@@ -58,4 +52,3 @@ win32:{
    LIBS+=-luser32
 }
 
-FORMS +=
