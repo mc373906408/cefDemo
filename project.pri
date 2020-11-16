@@ -1,0 +1,4 @@
+VAR_VERSION=1.0.0
+COMPANY=cef
+COPYRIGHT=Copyright (C) 2019 cef
+PRODUCT=cef
