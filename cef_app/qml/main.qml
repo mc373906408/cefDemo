@@ -215,14 +215,6 @@ Item {
         Window{
             id:m_window
             visible:true
-            //            color: "transparent"
-            property int m_width: 0
-            property int m_height:0
-            Component.onCompleted:{
-                flags=cppWindow.flags
-                m_window.setWidth(m_width)
-                m_window.setHeight(m_height)
-            }
         }
     }
 

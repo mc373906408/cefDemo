@@ -326,11 +326,10 @@ void QCefView::openWindow(QString objectName,QString fatherName,QString ie,QStri
             json["y"]=p_rect.height()-height+p_rect.y();
         }
 
-        json["m_width"]=json["width"].toInt();
-        json["m_height"]=json["height"].toInt();
         if(front=="1"){
             m_CefClientStruct.isFront=true;
         }
+        json["flags"]=(int)m_window->flags();
 
 
         m_CefClientStruct.width=json["width"].toInt();
